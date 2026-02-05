@@ -11,3 +11,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.planner-dia {
+  gap: 10px;
+  align-items: center;
+  width: 250px;
+  height: 850px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid red;
+  background-color: lime;
+  margin-top: 1vw;
+}
+
+.planner-dia-dia {
+  margin-top: 10px;
+  height: 40px;
+  width: 90%;
+  background-color: yellow;
+}
+
+.planner-dia-tarefas {
+  height: 50px;
+  width: 90%;
+  background-color: orange;
+  }
+
+.planner-dia-botao {
+  height: 50px;
+  width: 90%;
+  background-color: pink;
+}
+
+main {
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  background-color: aquamarine;
+  gap: 1vw;
+}
