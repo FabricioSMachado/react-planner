@@ -14,34 +14,50 @@ code {
 
 
 .planner-dia {
-  gap: 10px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+  gap: 20px;
   align-items: center;
-  width: 250px;
+  width: 500px;
   height: 850px;
   display: flex;
   flex-direction: column;
-  border: 2px solid red;
-  background-color: lime;
+  border: 2px solid rgb(139, 139, 139);
+  background-color: rgb(237, 246, 255);
   margin-top: 1vw;
+  border-radius: 20px;
 }
 
-.planner-dia-dia {
-  margin-top: 10px;
-  height: 40px;
+.planner-dia-data {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  height: 100px;
   width: 90%;
-  background-color: yellow;
+  background-color: rgb(177, 230, 255);
 }
 
 .planner-dia-tarefas {
-  height: 50px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
   width: 90%;
-  background-color: orange;
+  background-color: rgb(175, 255, 242);
   }
 
-.planner-dia-botao {
-  height: 50px;
+.planner-dia-add {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
   width: 90%;
-  background-color: pink;
+  background-color: rgb(201, 226, 255);
+  border-radius: 20px;
 }
 
 main {
@@ -51,6 +67,16 @@ main {
   height: 100vh;
   display: flex;
   flex-direction: row;
-  background-color: aquamarine;
+  background-color: rgb(255, 255, 255);
   gap: 1vw;
+}
+
+.planner-botao {
+  border-radius: 50%;
+  margin: 50px;
+  background-color: rgb(233, 233, 233);
+  width: 80px;
+  height: 80px;
+  opacity: 80%;
+  border: solid 1px black;
 }

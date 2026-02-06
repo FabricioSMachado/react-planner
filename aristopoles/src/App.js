@@ -5,40 +5,20 @@ function App() {
     const name = 'Aristópolis';
   return (
     <main>
-      <div className="planner-dia">
-        <div className="planner-dia-dia"></div>
-        <div className="planner-dia-tarefas"></div>
-        <div className="planner-dia-botao"></div>
+      <div className="planner-botao">
       </div>
       <div className="planner-dia">
-        <div className="planner-dia-dia"></div>
-        <div className="planner-dia-tarefas"></div>
-        <div className="planner-dia-botao"></div>
+        <div className="planner-dia-data">
+          01/01<br/>Segunda-feira
+        </div>
+        <div className="planner-dia-tarefas">
+          Tarefa Exemplo
+        </div>
+        <div className="planner-dia-add">
+          <div className="planner-dia-add-botao">+</div> 
+        </div>
       </div>
-      <div className="planner-dia">
-        <div className="planner-dia-dia"></div>
-        <div className="planner-dia-tarefas"></div>
-        <div className="planner-dia-botao"></div>
-      </div>
-      <div className="planner-dia">
-        <div className="planner-dia-dia"></div>
-        <div className="planner-dia-tarefas"></div>
-        <div className="planner-dia-botao"></div>
-      </div>
-      <div className="planner-dia">
-        <div className="planner-dia-dia"></div>
-        <div className="planner-dia-tarefas"></div>
-        <div className="planner-dia-botao"></div>
-      </div>
-      <div className="planner-dia">
-        <div className="planner-dia-dia"></div>
-        <div className="planner-dia-tarefas"></div>
-        <div className="planner-dia-botao"></div>
-      </div>
-      <div className="planner-dia">
-        <div className="planner-dia-dia"></div>
-        <div className="planner-dia-tarefas"></div>
-        <div className="planner-dia-botao"></div>
+      <div className="planner-botao">
       </div>
   </main>
 
