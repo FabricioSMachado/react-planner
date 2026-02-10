@@ -1,9 +1,15 @@
+import styles from './dataPlanner.module.css'
 
 
 function DataPlanner() {
     return (
-        <div className="planner-dia-data">
-        <p>01/01<br/>Segunda-feira</p>
+        <div className={styles["planner-dia-data"]}>
+            <div className={styles.data}>
+            01/01
+            </div>
+            <div className={styles.diaSemana}>
+            Segunda-feira
+            </div>
         </div>
     )
 }

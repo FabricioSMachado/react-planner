@@ -1,0 +1,38 @@
+.planner-dia-tarefas {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  width: 90%;
+  background-color: rgb(175, 255, 242);
+  border-radius: 12px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  }
+.planner-dia-tarefas:hover {  
+ transform: translateY(-2px);
+  transition: 0.3s;
+}
+.checkTarefa {
+margin-right: 12px;
+margin-left: 20px;
+}
+.conteudoTarefa {
+    display: flex;
+  flex-direction: column;
+  flex: 1;
+    text-align: left;
+}
+.tituloTarefa{
+    font-size: 1.1rem;
+  font-weight: 600;
+  color: #2b2b2b;
+}
+.horaTarefa{
+    font-size: 0.9rem;
+  color: #555;
+}
+.acaoTarefa{
+    font-size: 1.2rem;
+  cursor: pointer;
+  margin-right: 20px;
+}

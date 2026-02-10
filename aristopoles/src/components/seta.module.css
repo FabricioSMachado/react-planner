@@ -5,6 +5,7 @@
   border-bottom: 4px solid black;
   transform: rotate(45deg);
 }
+
 .left {
   transform: rotate(45deg);
 }

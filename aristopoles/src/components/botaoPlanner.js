@@ -1,10 +1,15 @@
-import EventoAddTarefa from './Events.js'
+import styles from './botaoPlanner.module.css'
+
 
 function BotaoPlanner() {
 
+    function eventClickPlannerAdd() {
+        window.alert("Adicionar dia no planner")
+    }
+
     return (
-        <div onClick={EventoAddTarefa} className="planner-dia-add">
-          <div className="planner-dia-add-botao">+</div> 
+        <div className={styles["planner-dia-add"]}>
+          <div className={styles["planner-dia-add-botao"]}>+</div> 
         </div>
     )
 }

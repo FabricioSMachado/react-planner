@@ -1,11 +1,10 @@
 import Seta from './seta.js'
-import EventoNav from './Events.js'
+import styles from './navegacao.module.css'
 
-function Navegacao({ direction = 'left' }) {
+function Navegacao({ direction = 'left' }) { 
 
     return (
-
-        <div onClick={EventoNav(direction)} className="planner-botao">
+        <div className={styles["planner-botao"]}>
         <Seta direction={direction}/>
         </div>     
 
