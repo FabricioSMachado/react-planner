@@ -1,11 +1,12 @@
-import MostrarTarefas from "./components/MostrarTarefas";
+import Seta from './components/seta';
+import DataPlanner from './components/dataPlanner';
+import TarefaPlanner from './components/tarefaPlanner';
+import BotaoPlanner from './components/botaoPlanner';
+import Navegacao from './components/navegacao';
 
 function App() {
 
-  const idTarefa = 1;
-  const nomeTarefa = "Comprar pão";
-  const descricaoTarefa = "Ir até a padaria e comprar um pão francês";
-
+    const name = 'Aristópolis';
   return (
 
     <main>
@@ -16,14 +17,13 @@ function App() {
           01/01<br/>Segunda-feira
         </div>
         <div className="planner-dia-tarefas">
-          <MostrarTarefas idTarefa={idTarefa} nomeTarefa={nomeTarefa} descricaoTarefa={descricaoTarefa}/>
+          Tarefa Exemplo
         </div>
         <div className="planner-dia-add">
           <div className="planner-dia-add-botao">+</div> 
         </div>
       </div>
-      <div className="planner-botao">
-      </div>
+      <Navegacao direction="right" />
   </main>
 
   )
