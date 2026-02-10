@@ -31,18 +31,6 @@ code {
 
 }
 
-.planner-dia-add {
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  width: 90%;
-  background-color: rgb(201, 226, 255);
-  border-radius: 20px;
-  cursor: pointer;
-}
-
 main {
   align-items: center;
   justify-content: center;
