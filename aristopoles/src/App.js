@@ -1,9 +1,13 @@
-
+import MostrarTarefas from "./components/MostrarTarefas";
 
 function App() {
 
-    const name = 'Aristópolis';
+  const idTarefa = 1;
+  const nomeTarefa = "Comprar pão";
+  const descricaoTarefa = "Ir até a padaria e comprar um pão francês";
+
   return (
+
     <main>
       <div className="planner-botao">
       </div>
@@ -12,7 +16,7 @@ function App() {
           01/01<br/>Segunda-feira
         </div>
         <div className="planner-dia-tarefas">
-          Tarefa Exemplo
+          <MostrarTarefas idTarefa={idTarefa} nomeTarefa={nomeTarefa} descricaoTarefa={descricaoTarefa}/>
         </div>
         <div className="planner-dia-add">
           <div className="planner-dia-add-botao">+</div> 
