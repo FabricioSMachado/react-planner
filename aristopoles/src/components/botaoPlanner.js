@@ -1,8 +1,9 @@
-
+import EventoAddTarefa from './Events.js'
 
 function BotaoPlanner() {
+
     return (
-        <div className="planner-dia-add">
+        <div onClick={EventoAddTarefa} className="planner-dia-add">
           <div className="planner-dia-add-botao">+</div> 
         </div>
     )
