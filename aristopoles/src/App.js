@@ -1,4 +1,4 @@
-
+import Seta from './components/seta'
 
 function App() {
 
@@ -6,6 +6,7 @@ function App() {
   return (
     <main>
       <div className="planner-botao">
+        <Seta/>
       </div>
       <div className="planner-dia">
         <div className="planner-dia-data">
@@ -19,6 +20,7 @@ function App() {
         </div>
       </div>
       <div className="planner-botao">
+        <Seta direction="right" />
       </div>
   </main>
 

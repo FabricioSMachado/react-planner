@@ -1,0 +1,13 @@
+.seta {
+  width: 15px;
+  height: 15px;
+  border-left: 4px solid black;
+  border-bottom: 4px solid black;
+  transform: rotate(45deg);
+}
+.left {
+  transform: rotate(45deg);
+}
+.right {
+  transform: rotate(-135deg);
+}
