@@ -1,9 +1,10 @@
+import styles from './botaoPlanner.module.css'
 
 
 function BotaoPlanner() {
     return (
-        <div className="planner-dia-add">
-          <div className="planner-dia-add-botao">+</div> 
+        <div className={styles["planner-dia-add"]}>
+          <div className={styles["planner-dia-add-botao"]}>+</div> 
         </div>
     )
 }

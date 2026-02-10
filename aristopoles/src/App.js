@@ -1,4 +1,4 @@
-import Seta from './components/seta';
+
 import DataPlanner from './components/dataPlanner';
 import TarefaPlanner from './components/tarefaPlanner';
 import BotaoPlanner from './components/botaoPlanner';

@@ -1,8 +1,10 @@
 import Seta from './seta.js'
+import styles from './navegacao.module.css'
+
 
 function Navegacao({ direction = 'left' }) {
     return (
-        <div className="planner-botao">
+        <div className={styles["planner-botao"]}>
         <Seta direction={direction}/>
         </div>
     )
