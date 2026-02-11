@@ -8,7 +8,7 @@ function BotaoPlanner() {
     }
 
     return (
-        <div className={styles["planner-dia-add"]}>
+        <div onClick={eventClickPlannerAdd} className={styles["planner-dia-add"]}>
           <div className={styles["planner-dia-add-botao"]}>+</div> 
         </div>
     )

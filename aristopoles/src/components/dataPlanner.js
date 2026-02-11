@@ -1,14 +1,17 @@
 import styles from './dataPlanner.module.css'
 
 
-function DataPlanner() {
+function DataPlanner({ diaAtual }) {
+
+    const diaSemana = diaAtual.toLocaleDateString('pt-BR', { weekday: 'long' });
+
     return (
         <div className={styles["planner-dia-data"]}>
             <div className={styles.data}>
-            01/01
+            {diaAtual.getDate()}/{diaAtual.getMonth() + 1}
             </div>
             <div className={styles.diaSemana}>
-            Segunda-feira
+            {diaSemana.charAt(0).toUpperCase() + diaSemana.slice(1)}
             </div>
         </div>
     )
