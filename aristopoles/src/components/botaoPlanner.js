@@ -7,7 +7,6 @@ function BotaoPlanner({ modoPlanner, onNavigate }) {
         onNavigate();
     }
 
-
     if (modoPlanner === 0) {
         return (
             <div onClick={handleClick} className={styles["planner-dia-add"]}>
@@ -18,7 +17,7 @@ function BotaoPlanner({ modoPlanner, onNavigate }) {
 } else if (modoPlanner === 1) {
     return (
         <div onClick={handleClick} className={styles["planner-dia-add"]}>
-        <div className={styles["planner-dia-add-botao"]}>Salvar</div> 
+          <div className={styles["planner-dia-add-botao"]}>Salvar</div> 
         </div>
     )
 }
