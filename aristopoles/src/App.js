@@ -29,7 +29,6 @@ function App() {
           <DataPlanner diaAtual={diaAtual}/>
           <TarefaPlanner/>
           <BotaoPlanner/>
-          <div>{diaAtual}</div>
       </div>
       <Navegacao direction="right" atualizaDia={atualizaDia} />
   </main>
