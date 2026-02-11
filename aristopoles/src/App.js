@@ -27,37 +27,22 @@ function App() {
     } else if (modoPlanner === 1) {
       setModoPlanner(0);
     }
-    
   }
+    
 
-  if (modoPlanner === 0) {
     return (
       <main>
           <Navegacao direction="left" onNavigate={atualizaDiaAtual} />
         <div className="planner-dia">     
             <DataPlanner diaAtual={diaAtual}/>
-            <TarefaPlanner/>
+            <TarefaPlanner modoPlanner={modoPlanner}/>
             <BotaoPlanner modoPlanner={modoPlanner} onNavigate={alternaModoPlanner} />
         </div>
         <Navegacao direction="right" onNavigate={atualizaDiaAtual} />
     </main>
     )
 
-  } else if (modoPlanner === 1) {
+  }
 
-  return (
-    <main>
-        <Navegacao direction="left" onNavigate={atualizaDiaAtual} />
-      <div className="planner-dia">     
-          <DataPlanner diaAtual={diaAtual}/>
-          <BotaoPlanner modoPlanner={modoPlanner} onNavigate={alternaModoPlanner} />
-      </div>
-      <Navegacao direction="right" onNavigate={atualizaDiaAtual} />
-  </main>
-
-  )
-}
-
-}
 
 export default App;
