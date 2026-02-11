@@ -8,6 +8,8 @@ function App() {
 
   const [diaAtual, setDiaAtual] = useState(new Date());
 
+  const [modoPlanner, setModoPlanner] = useState(0);
+
   function atualizaDiaAtual(direction) {
     const novoDia = new Date(diaAtual);
     if (direction === "left") {
@@ -18,18 +20,29 @@ function App() {
     setDiaAtual(novoDia);
   }
 
-  return (
-    <main>
-        <Navegacao direction="left" onNavigate={atualizaDiaAtual} />
-      <div className="planner-dia">     
-          <DataPlanner diaAtual={diaAtual}/>
-          <TarefaPlanner/>
-          <BotaoPlanner/>
-      </div>
-      <Navegacao direction="right" onNavigate={atualizaDiaAtual} />
-  </main>
 
-  )
-}
+  function alternaModoPlanner() {
+    if (modoPlanner === 0) {
+      setModoPlanner(1);
+    } else if (modoPlanner === 1) {
+      setModoPlanner(0);
+    }
+  }
+    
+
+    return (
+      <main>
+          <Navegacao direction="left" onNavigate={atualizaDiaAtual} />
+        <div className="planner-dia">     
+            <DataPlanner diaAtual={diaAtual}/>
+            <TarefaPlanner modoPlanner={modoPlanner}/>
+            <BotaoPlanner modoPlanner={modoPlanner} onNavigate={alternaModoPlanner} />
+        </div>
+        <Navegacao direction="right" onNavigate={atualizaDiaAtual} />
+    </main>
+    )
+
+  }
+
 
 export default App;
