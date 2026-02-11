@@ -2,6 +2,11 @@ import styles from './botaoPlanner.module.css'
 
 
 function BotaoPlanner() {
+
+    function eventClickPlannerAdd() {
+        window.alert("Adicionar dia no planner")
+    }
+
     return (
         <div className={styles["planner-dia-add"]}>
           <div className={styles["planner-dia-add-botao"]}>+</div> 
