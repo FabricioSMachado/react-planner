@@ -1,17 +1,28 @@
 import styles from './botaoPlanner.module.css'
 
 
-function BotaoPlanner() {
+function BotaoPlanner({ modoPlanner, onNavigate }) {
 
-    function eventClickPlannerAdd() {
-        window.alert("Adicionar dia no planner")
+    function handleClick() {
+        onNavigate();
     }
 
+
+    if (modoPlanner === 0) {
+        return (
+            <div onClick={handleClick} className={styles["planner-dia-add"]}>
+            <div className={styles["planner-dia-add-botao"]}>+</div> 
+            </div>
+        )
+
+} else if (modoPlanner === 1) {
     return (
-        <div onClick={eventClickPlannerAdd} className={styles["planner-dia-add"]}>
-          <div className={styles["planner-dia-add-botao"]}>+</div> 
+        <div onClick={handleClick} className={styles["planner-dia-add"]}>
+        <div className={styles["planner-dia-add-botao"]}>Salvar</div> 
         </div>
     )
+}
+
 }
 
 export default BotaoPlanner
