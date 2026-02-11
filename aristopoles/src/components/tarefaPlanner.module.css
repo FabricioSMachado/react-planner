@@ -36,3 +36,24 @@ margin-left: 20px;
   cursor: pointer;
   margin-right: 20px;
 }
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.inputTexto {
+  margin-left: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+}
+
+.inputHora {
+  margin-left: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
