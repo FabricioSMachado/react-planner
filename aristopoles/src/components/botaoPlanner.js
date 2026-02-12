@@ -6,6 +6,7 @@ function BotaoPlanner({ modoPlanner, eventModoPlanner, eventSalvarTarefa }) {
     function handleClick() {
         if (modoPlanner === 1) {
             eventSalvarTarefa();
+            eventModoPlanner();
         } else {
             eventModoPlanner();
         }

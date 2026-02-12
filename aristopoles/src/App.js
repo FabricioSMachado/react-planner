@@ -6,30 +6,44 @@ import Navegacao from './components/navegacao';
 
 function App() {
 
+
   const [diaAtual, setDiaAtual] = useState(new Date());
 
   const [modoPlanner, setModoPlanner] = useState(0);
-
-  const [idTarefa, setIdTarefa] = useState(null);
-
-  const [diaTarefa, setDiaTarefa] = useState(new Date());
 
   const [descricaoTarefa, setDescricaoTarefa] = useState("");
 
   const [horaTarefa, setHoraTarefa] = useState("");
 
-  const [concluidaTarefa, setConcluidaTarefa] = useState(false);
+  const [tarefas, setTarefas] = useState([]);
+
+
+  const tarefa = {
+    id: null,
+    dia: new Date(),
+    descricao: "",
+    hora: "",
+    concluida: false
+  }
 
 
   function salvarTarefa() {
-    const novoId = Date.now();
-    const novoDia = diaAtual;
-    const novoConcluida = false;
+    const novaTarefa = {
+      id: Date.now(),
+      dia: diaAtual,
+      descricao: descricaoTarefa,
+      hora: horaTarefa,
+      concluida: false
+    };
 
-    setIdTarefa(novoId);
-    setDiaTarefa(novoDia);
-    setConcluidaTarefa(novoConcluida);
-    console.log("Tarefa salva. id:", novoId, "dia:", novoDia, "descrição:", descricaoTarefa, "hora:", horaTarefa, "concluída:", novoConcluida);
+    setTarefas(prevTarefas => [...prevTarefas, novaTarefa]);
+
+    console.log("Tarefas atuais:", tarefas);
+    console.log("Nova lista:", [...tarefas, novaTarefa]);
+    console.log("Tarefa salva:", novaTarefa);
+
+    setDescricaoTarefa("");
+    setHoraTarefa("");
   }
 
   function atualizaDiaAtual(direction) {
