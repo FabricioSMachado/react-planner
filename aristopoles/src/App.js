@@ -11,6 +11,7 @@ function App() {
 
   const [modoPlanner, setModoPlanner] = useState(0);
 
+<<<<<<< HEAD
   const [descricaoTarefa, setDescricaoTarefa] = useState("");
 
   const [horaTarefa, setHoraTarefa] = useState("");
@@ -45,6 +46,13 @@ function App() {
     setDescricaoTarefa("");
     setHoraTarefa("");
   }
+=======
+  const tarefas = [
+  { id: 1, titulo: "Tarefa Exemplo", hora: "10:00" },
+  { id: 2, titulo: "Estudar React", hora: "14:00" },
+  { id: 3, titulo: "Academia", hora: "18:30" }
+  ];
+>>>>>>> derpao
 
   function atualizaDiaAtual(direction) {
     const novoDia = new Date(diaAtual);
@@ -71,8 +79,13 @@ function App() {
           <Navegacao direction="left" event={atualizaDiaAtual} />
         <div className="planner-dia">     
             <DataPlanner diaAtual={diaAtual}/>
+<<<<<<< HEAD
             <TarefaPlanner modoPlanner={modoPlanner} descricaoTarefa={descricaoTarefa} horaTarefa={horaTarefa} setDescricaoTarefa={setDescricaoTarefa} setHoraTarefa={setHoraTarefa} />
             <BotaoPlanner modoPlanner={modoPlanner} eventModoPlanner={alternaModoPlanner} eventSalvarTarefa={salvarTarefa}   />
+=======
+            <TarefaPlanner modoPlanner={modoPlanner} tarefas={tarefas} />
+            <BotaoPlanner modoPlanner={modoPlanner} event={alternaModoPlanner} />
+>>>>>>> derpao
         </div>
         <Navegacao direction="right" event={atualizaDiaAtual} />
     </main>
