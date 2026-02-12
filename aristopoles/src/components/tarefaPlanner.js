@@ -1,7 +1,7 @@
 import styles from './tarefaPlanner.module.css'
 
 
-function TarefaPlanner({ modoPlanner }) {
+function TarefaPlanner({ modoPlanner, descricaoTarefa, horaTarefa, setDescricaoTarefa, setHoraTarefa }) {
 
 
     if (modoPlanner === 0) {
@@ -28,12 +28,16 @@ function TarefaPlanner({ modoPlanner }) {
             <div className={styles["planner-dia-tarefas"]}>
             <form>
                 <input
+                value={descricaoTarefa}
+                onChange={(e) => setDescricaoTarefa(e.target.value)}
                 type="text"
                 placeholder="Nome da tarefa"
                 className={styles.inputTexto}
             />
 
                 <input
+                value={horaTarefa}
+                onChange={(e) => setHoraTarefa(e.target.value)}
                 type="time"
                 className={styles.inputHora}
                 />

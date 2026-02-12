@@ -1,10 +1,14 @@
 import styles from './botaoPlanner.module.css'
 
 
-function BotaoPlanner({ modoPlanner, event }) {
+function BotaoPlanner({ modoPlanner, eventModoPlanner, eventSalvarTarefa }) {
 
     function handleClick() {
-        event();
+        if (modoPlanner === 1) {
+            eventSalvarTarefa();
+        } else {
+            eventModoPlanner();
+        }
     }
 
     if (modoPlanner === 0) {
