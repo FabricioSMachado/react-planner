@@ -64,13 +64,19 @@ function App() {
     }
   }
     
-
     return (
       <main>
           <Navegacao direction="left" event={atualizaDiaAtual} />
         <div className="planner-dia">     
             <DataPlanner diaAtual={diaAtual}/>
-            <TarefaPlanner modoPlanner={modoPlanner} descricaoTarefa={descricaoTarefa} horaTarefa={horaTarefa} setDescricaoTarefa={setDescricaoTarefa} setHoraTarefa={setHoraTarefa} />
+            <TarefaPlanner 
+              modoPlanner={modoPlanner} 
+              tarefas={tarefas}
+              descricaoTarefa={descricaoTarefa}
+              horaTarefa={horaTarefa}
+              setDescricaoTarefa={setDescricaoTarefa}
+              setHoraTarefa={setHoraTarefa}
+              />
             <BotaoPlanner modoPlanner={modoPlanner} eventModoPlanner={alternaModoPlanner} eventSalvarTarefa={salvarTarefa}   />
         </div>
         <Navegacao direction="right" event={atualizaDiaAtual} />

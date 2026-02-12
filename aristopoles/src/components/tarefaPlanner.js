@@ -1,7 +1,7 @@
 import styles from './tarefaPlanner.module.css'
 
 
-function TarefaPlanner({ modoPlanner }) {
+function TarefaPlanner({ modoPlanner, tarefas, descricaoTarefa, horaTarefa, setDescricaoTarefa, setHoraTarefa }) {
 
 
     if (modoPlanner === 0) {
@@ -9,7 +9,7 @@ function TarefaPlanner({ modoPlanner }) {
 
     <>
           {tarefas.map((tarefas) => (
-            <div key={tarefas.id} className={styles["planner-dia-tarefas"]}>
+            <div key={tarefas.key} className={styles["planner-dia-tarefas"]}>
             <div className={styles.checkTarefa}>
                 <input type="checkbox" />
             </div>
