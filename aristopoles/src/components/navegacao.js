@@ -1,10 +1,10 @@
 import Seta from './seta.js'
 import styles from './navegacao.module.css'
 
-function Navegacao({ direction = 'left', onNavigate }) { 
+function Navegacao({ direction = 'left', event }) { 
 
     function handleClick() {
-        onNavigate(direction);
+        event(direction);
     }
 
     return (
