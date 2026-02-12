@@ -7,20 +7,6 @@ function TarefaPlanner({ modoPlanner }) {
     if (modoPlanner === 0) {
     return (
 
-       /* oi fabricio <div className={styles["planner-dia-tarefas"]}>
-            <form>
-                <input
-                type="text"
-                placeholder="Nome da tarefa"
-                className={styles.inputTexto}
-            />
-
-                <input
-                type="time"
-                className={styles.inputHora}
-                />
-            </form>
-        </div> */
 
         <div className={styles["planner-dia-tarefas"]}>
          <div className={styles.checkTarefa}>
