@@ -1,10 +1,10 @@
 import styles from './botaoPlanner.module.css'
 
 
-function BotaoPlanner({ modoPlanner, onNavigate }) {
+function BotaoPlanner({ modoPlanner, event }) {
 
     function handleClick() {
-        onNavigate();
+        event();
     }
 
     if (modoPlanner === 0) {

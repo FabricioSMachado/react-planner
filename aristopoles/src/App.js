@@ -10,6 +10,7 @@ function App() {
 
   const [modoPlanner, setModoPlanner] = useState(0);
 
+
   function atualizaDiaAtual(direction) {
     const novoDia = new Date(diaAtual);
     if (direction === "left") {
@@ -32,13 +33,13 @@ function App() {
 
     return (
       <main>
-          <Navegacao direction="left" onNavigate={atualizaDiaAtual} />
+          <Navegacao direction="left" event={atualizaDiaAtual} />
         <div className="planner-dia">     
             <DataPlanner diaAtual={diaAtual}/>
             <TarefaPlanner modoPlanner={modoPlanner}/>
-            <BotaoPlanner modoPlanner={modoPlanner} onNavigate={alternaModoPlanner} />
+            <BotaoPlanner modoPlanner={modoPlanner} event={alternaModoPlanner} />
         </div>
-        <Navegacao direction="right" onNavigate={atualizaDiaAtual} />
+        <Navegacao direction="right" event={atualizaDiaAtual} />
     </main>
     )
 
