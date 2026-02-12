@@ -1,26 +1,32 @@
 import styles from './tarefaPlanner.module.css'
 
 
-function TarefaPlanner({ modoPlanner }) {
+function TarefaPlanner({ modoPlanner, tarefas }) {
 
 
     if (modoPlanner === 0) {
     return (
 
-
-        <div className={styles["planner-dia-tarefas"]}>
-         <div className={styles.checkTarefa}>
-            <input type="checkbox" />
-         </div>
-
-        <div className={styles.conteudoTarefa}>
-            <span className={styles.tituloTarefa}>Tarefa Exemplo</span>
-            <span className={styles.horaTarefa}>10:00</span>
-        </div>
-        <div className={styles.acaoTarefa}>
-        ⋮
-        </div>
-        </div>
+    <>
+          {tarefas.map((tarefas) => (
+            <div key={tarefas.id} className={styles["planner-dia-tarefas"]}>
+            <div className={styles.checkTarefa}>
+                <input type="checkbox" />
+            </div>
+            <div className={styles.conteudoTarefa}>
+                <span className={styles.tituloTarefa}>
+                {tarefas.titulo}
+                </span>
+                <span className={styles.horaTarefa}>
+                {tarefas.hora}
+                </span>
+            </div>
+            <div className={styles.acaoTarefa}>
+                :
+            </div>
+            </div>
+  ))}
+    </>
     )
 }
 
