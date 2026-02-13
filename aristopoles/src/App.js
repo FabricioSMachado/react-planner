@@ -15,7 +15,7 @@ function App() {
   const [horaTarefa, setHoraTarefa] = useState("");
 
   const [tarefas, setTarefas] = useState([]);
- //teste
+
   function salvarTarefa() {
     const novaTarefa = {
       id: Date.now(),
@@ -34,6 +34,18 @@ function App() {
     setDescricaoTarefa("");
     setHoraTarefa("");
   }
+
+  function toggleConcluida(id) {
+  setTarefas(tarefas.map(tarefa => {
+    if (tarefa.id === id) {
+      return {
+        ...tarefa,
+        concluida: !tarefa.concluida
+      };
+    }
+    return tarefa;
+  }));
+}
 
   function atualizaDiaAtual(direction) {
     const novoDia = new Date(diaAtual);
@@ -60,7 +72,7 @@ function App() {
           <Navegacao direction="left" event={atualizaDiaAtual} />
         <div className="planner-dia">     
             <DataPlanner diaAtual={diaAtual}/>
-            <TarefaPlanner modoPlanner={modoPlanner} descricaoTarefa={descricaoTarefa} horaTarefa={horaTarefa} setDescricaoTarefa={setDescricaoTarefa} setHoraTarefa={setHoraTarefa} diaAtual={diaAtual} tarefas={tarefas} />
+            <TarefaPlanner modoPlanner={modoPlanner} descricaoTarefa={descricaoTarefa} horaTarefa={horaTarefa} setDescricaoTarefa={setDescricaoTarefa} setHoraTarefa={setHoraTarefa} diaAtual={diaAtual} tarefas={tarefas} toggleConcluida={toggleConcluida} />
             <BotaoPlanner modoPlanner={modoPlanner} eventModoPlanner={alternaModoPlanner} eventSalvarTarefa={salvarTarefa}   />
         </div>
         <Navegacao direction="right" event={atualizaDiaAtual} />
