@@ -3,6 +3,7 @@ import DataPlanner from './components/dataPlanner';
 import TarefaPlanner from './components/tarefaPlanner';
 import BotaoPlanner from './components/botaoPlanner';
 import Navegacao from './components/navegacao';
+import MenuTarefa from './components/menuTarefa';
 
 function App() {
 
@@ -15,14 +16,33 @@ function App() {
   const [horaTarefa, setHoraTarefa] = useState("");
 
   const [tarefas, setTarefas] = useState([]);
- //teste
+
+
+
   function salvarTarefa() {
+
+    if (!descricaoTarefa.trim() && !horaTarefa.trim()) {
+      alert("Preencha a descrição e a hora da tarefa antes de salvar.");
+      return;
+    }
+
+    if (!descricaoTarefa.trim()) {
+      alert("Preencha a descrição da tarefa antes de salvar.");
+      return;
+    }
+
+    if (!horaTarefa.trim()) {
+      alert("Preencha a hora da tarefa antes de salvar.");
+      return;
+    }
+
     const novaTarefa = {
       id: Date.now(),
       dia: diaAtual,
       descricao: descricaoTarefa,
       hora: horaTarefa,
-      concluida: false
+      concluida: false,
+      menuAberto: false
     };
 
     setTarefas(prevTarefas => [...prevTarefas, novaTarefa]);
@@ -33,7 +53,10 @@ function App() {
 
     setDescricaoTarefa("");
     setHoraTarefa("");
+
+    alternaModoPlanner();
   }
+
 
   function atualizaDiaAtual(direction) {
     const novoDia = new Date(diaAtual);
@@ -53,15 +76,27 @@ function App() {
       setModoPlanner(0);
     }
   }
+
+
+  function toggleMenuTarefa(idTarefa) {
+    setTarefas(prevTarefas =>
+      prevTarefas.map(tarefa => ({
+        ...tarefa,
+        menuAberto: tarefa.id === idTarefa ? !tarefa.menuAberto : false
+      }))
+    );
+  }
     
+
 
     return (
       <main>
           <Navegacao direction="left" event={atualizaDiaAtual} />
         <div className="planner-dia">     
             <DataPlanner diaAtual={diaAtual}/>
-            <TarefaPlanner modoPlanner={modoPlanner} descricaoTarefa={descricaoTarefa} horaTarefa={horaTarefa} setDescricaoTarefa={setDescricaoTarefa} setHoraTarefa={setHoraTarefa} diaAtual={diaAtual} tarefas={tarefas} />
+            <TarefaPlanner modoPlanner={modoPlanner} descricaoTarefa={descricaoTarefa} horaTarefa={horaTarefa} setDescricaoTarefa={setDescricaoTarefa} setHoraTarefa={setHoraTarefa} diaAtual={diaAtual} tarefas={tarefas} toggleMenuTarefa={toggleMenuTarefa} />
             <BotaoPlanner modoPlanner={modoPlanner} eventModoPlanner={alternaModoPlanner} eventSalvarTarefa={salvarTarefa}   />
+            <MenuTarefa />
         </div>
         <Navegacao direction="right" event={atualizaDiaAtual} />
     </main>

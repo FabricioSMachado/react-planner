@@ -1,7 +1,7 @@
 import styles from './tarefaPlanner.module.css'
 
 
-function TarefaPlanner({ modoPlanner, tarefas, descricaoTarefa, horaTarefa, setDescricaoTarefa, setHoraTarefa, diaAtual }) {
+function TarefaPlanner({ modoPlanner, tarefas, descricaoTarefa, horaTarefa, setDescricaoTarefa, setHoraTarefa, diaAtual, toggleMenuTarefa }) {
 
     console.log("PROPS COMPLETAS:", arguments[0]);
 
@@ -18,6 +18,13 @@ console.log("diaAtual:", diaAtual);
         d1.getDate() === d2.getDate()
     );
     });
+
+
+    function handleClickMenuTarefa() {
+        toggleMenuTarefa();
+    }
+
+
 
     if (modoPlanner === 0) {
     return (
@@ -39,7 +46,7 @@ console.log("diaAtual:", diaAtual);
                 {tarefa.hora}
                 </span>
             </div>
-            <div className={styles.acaoTarefa}>
+            <div value={tarefa.id} onClick={handleClickMenuTarefa} className={styles.acaoTarefa}>
                 :
             </div>
             </div>
@@ -59,6 +66,7 @@ console.log("diaAtual:", diaAtual);
                 type="text"
                 placeholder="Nome da tarefa"
                 className={styles.inputTexto}
+                required
             />
 
                 <input
@@ -66,6 +74,7 @@ console.log("diaAtual:", diaAtual);
                 onChange={(e) => setHoraTarefa(e.target.value)}
                 type="time"
                 className={styles.inputHora}
+                required
                 />
             </form>
         </div>
