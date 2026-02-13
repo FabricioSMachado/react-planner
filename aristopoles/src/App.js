@@ -15,11 +15,13 @@ function App() {
   const [horaTarefa, setHoraTarefa] = useState("");
 
   const [tarefas, setTarefas] = useState([]);
-  
+
+  const [proximoId, setProximoId] = useState(1);
+
 
   function salvarTarefa() {
     const novaTarefa = {
-      id: Date.now(),
+      id: proximoId,
       dia: diaAtual,
       descricao: descricaoTarefa,
       hora: horaTarefa,
@@ -27,6 +29,8 @@ function App() {
     };
 
     setTarefas(prevTarefas => [...prevTarefas, novaTarefa]);
+
+    setProximoId(prevId => prevId + 1);
 
     console.log("Tarefas atuais:", tarefas);
     console.log("Nova lista:", [...tarefas, novaTarefa]);

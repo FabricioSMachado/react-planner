@@ -8,17 +8,17 @@ function TarefaPlanner({ modoPlanner, tarefas, descricaoTarefa, horaTarefa, setD
     return (
 
     <>
-          {tarefas.map((tarefas) => (
-            <div key={tarefas.key} className={styles["planner-dia-tarefas"]}>
+          {tarefas.map((tarefa) => (
+            <div key={tarefa.id} className={styles["planner-dia-tarefas"]}>
             <div className={styles.checkTarefa}>
                 <input type="checkbox" />
             </div>
             <div className={styles.conteudoTarefa}>
                 <span className={styles.tituloTarefa}>
-                {tarefas.titulo}
+                {tarefa.descricao}
                 </span>
                 <span className={styles.horaTarefa}>
-                {tarefas.hora}
+                {tarefa.hora}
                 </span>
             </div>
             <div className={styles.acaoTarefa}>
