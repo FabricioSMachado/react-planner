@@ -1,14 +1,32 @@
 import styles from './tarefaPlanner.module.css'
 
 
-function TarefaPlanner({ modoPlanner, tarefas, descricaoTarefa, horaTarefa, setDescricaoTarefa, setHoraTarefa }) {
+function TarefaPlanner({ modoPlanner, tarefas, descricaoTarefa, horaTarefa, setDescricaoTarefa, setHoraTarefa, diaAtual }) {
 
+    console.log("PROPS COMPLETAS:", arguments[0]);
+
+console.log("tarefas:", tarefas);
+console.log("diaAtual:", diaAtual);
+
+    const tarefasDoDia = tarefas.filter(tarefa => {
+    const d1 = new Date(tarefa.dia);
+    const d2 = new Date(diaAtual);
+
+    return (
+        d1.getFullYear() === d2.getFullYear() &&
+        d1.getMonth() === d2.getMonth() &&
+        d1.getDate() === d2.getDate()
+    );
+    });
 
     if (modoPlanner === 0) {
     return (
 
     <>
-          {tarefas.map((tarefa) => (
+
+        
+
+          {tarefasDoDia.map((tarefa) => (
             <div key={tarefa.id} className={styles["planner-dia-tarefas"]}>
             <div className={styles.checkTarefa}>
                 <input type="checkbox" />

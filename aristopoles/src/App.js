@@ -16,12 +16,20 @@ function App() {
 
   const [tarefas, setTarefas] = useState([]);
 
-  const [proximoId, setProximoId] = useState(1);
+
+  const tarefa = {
+    id: null,
+    dia: new Date(),
+    descricao: "",
+    hora: "",
+    concluida: false
+  }
+
 
 
   function salvarTarefa() {
     const novaTarefa = {
-      id: proximoId,
+      id: Date.now(),
       dia: diaAtual,
       descricao: descricaoTarefa,
       hora: horaTarefa,
@@ -29,8 +37,6 @@ function App() {
     };
 
     setTarefas(prevTarefas => [...prevTarefas, novaTarefa]);
-
-    setProximoId(prevId => prevId + 1);
 
     console.log("Tarefas atuais:", tarefas);
     console.log("Nova lista:", [...tarefas, novaTarefa]);
@@ -59,19 +65,13 @@ function App() {
     }
   }
     
+
     return (
       <main>
           <Navegacao direction="left" event={atualizaDiaAtual} />
         <div className="planner-dia">     
             <DataPlanner diaAtual={diaAtual}/>
-            <TarefaPlanner 
-              modoPlanner={modoPlanner} 
-              tarefas={tarefas}
-              descricaoTarefa={descricaoTarefa}
-              horaTarefa={horaTarefa}
-              setDescricaoTarefa={setDescricaoTarefa}
-              setHoraTarefa={setHoraTarefa}
-              />
+            <TarefaPlanner modoPlanner={modoPlanner} descricaoTarefa={descricaoTarefa} horaTarefa={horaTarefa} setDescricaoTarefa={setDescricaoTarefa} setHoraTarefa={setHoraTarefa} diaAtual={diaAtual} tarefas={tarefas} />
             <BotaoPlanner modoPlanner={modoPlanner} eventModoPlanner={alternaModoPlanner} eventSalvarTarefa={salvarTarefa}   />
         </div>
         <Navegacao direction="right" event={atualizaDiaAtual} />
