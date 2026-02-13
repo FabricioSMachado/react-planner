@@ -15,16 +15,7 @@ function App() {
   const [horaTarefa, setHoraTarefa] = useState("");
 
   const [tarefas, setTarefas] = useState([]);
-
-
-  const tarefa = {
-    id: null,
-    dia: new Date(),
-    descricao: "",
-    hora: "",
-    concluida: false
-  }
-
+  
 
   function salvarTarefa() {
     const novaTarefa = {
