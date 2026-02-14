@@ -1,7 +1,7 @@
 import styles from "./menuTarefa.module.css";
 import { useEffect, useRef } from "react";
 
-function MenuTarefa({ toggleMenuTarefa }) {
+function MenuTarefa({ toggleMenuTarefa, idTarefa, ExcluirTarefa, EditarTarefa }) {
 
     const menuRef = useRef(null);
 
@@ -20,13 +20,25 @@ function MenuTarefa({ toggleMenuTarefa }) {
     }, [toggleMenuTarefa]);
 
 
+    function handleMenuExcluirTarefa() {
+        ExcluirTarefa(idTarefa);
+        toggleMenuTarefa(null);
+    }
+
+
+    function handleMenuEditarTarefa() {
+        EditarTarefa(idTarefa);
+        toggleMenuTarefa(null);
+    }
+
+
 
     return (
         <div ref={menuRef} className={styles.menuTarefa}>
-            <div className={styles.menuTarefaItem}>
+            <div onClick={handleMenuExcluirTarefa} className={styles.menuTarefaItem}>
                 Excluir tarefa
             </div>
-            <div className={styles.menuTarefaItem}>
+            <div onClick={handleMenuEditarTarefa} className={styles.menuTarefaItem}>
                 Editar tarefa
             </div>
         </div>
