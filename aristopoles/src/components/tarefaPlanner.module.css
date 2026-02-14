@@ -1,4 +1,5 @@
 .planner-dia-tarefas {
+  position: relative;
   display: flex;
   align-items: center;
   height: 100px;
@@ -32,9 +33,10 @@ margin-left: 20px;
   color: #555;
 }
 .acaoTarefa{
-    font-size: 1.2rem;
+  width: 15px;
+  font-size: 1.2rem;
   cursor: pointer;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .form {

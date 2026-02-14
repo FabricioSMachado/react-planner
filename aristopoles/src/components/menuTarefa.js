@@ -1,9 +1,28 @@
 import styles from "./menuTarefa.module.css";
+import { useEffect, useRef } from "react";
 
-function menuTarefa() {
+function MenuTarefa({ toggleMenuTarefa }) {
+
+    const menuRef = useRef(null);
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+             toggleMenuTarefa(null);
+        }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [toggleMenuTarefa]);
+
+
 
     return (
-        <div className={styles.menuTarefa}>
+        <div ref={menuRef} className={styles.menuTarefa}>
             <div className={styles.menuTarefaItem}>
                 Excluir tarefa
             </div>
@@ -14,4 +33,4 @@ function menuTarefa() {
     );
 }
 
-export default menuTarefa
+export default MenuTarefa

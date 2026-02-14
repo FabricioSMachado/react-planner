@@ -3,7 +3,6 @@ import DataPlanner from './components/dataPlanner';
 import TarefaPlanner from './components/tarefaPlanner';
 import BotaoPlanner from './components/botaoPlanner';
 import Navegacao from './components/navegacao';
-import MenuTarefa from './components/menuTarefa';
 
 function App() {
 
@@ -96,7 +95,6 @@ function App() {
             <DataPlanner diaAtual={diaAtual}/>
             <TarefaPlanner modoPlanner={modoPlanner} descricaoTarefa={descricaoTarefa} horaTarefa={horaTarefa} setDescricaoTarefa={setDescricaoTarefa} setHoraTarefa={setHoraTarefa} diaAtual={diaAtual} tarefas={tarefas} toggleMenuTarefa={toggleMenuTarefa} />
             <BotaoPlanner modoPlanner={modoPlanner} eventModoPlanner={alternaModoPlanner} eventSalvarTarefa={salvarTarefa}   />
-            <MenuTarefa />
         </div>
         <Navegacao direction="right" event={atualizaDiaAtual} />
     </main>

@@ -1,4 +1,5 @@
 import styles from './tarefaPlanner.module.css'
+import MenuTarefa from './menuTarefa';
 
 
 function TarefaPlanner({ modoPlanner, tarefas, descricaoTarefa, horaTarefa, setDescricaoTarefa, setHoraTarefa, diaAtual, toggleMenuTarefa }) {
@@ -20,8 +21,8 @@ console.log("diaAtual:", diaAtual);
     });
 
 
-    function handleClickMenuTarefa() {
-        toggleMenuTarefa();
+    function handleClickMenuTarefa(idTarefa) {
+        toggleMenuTarefa(idTarefa);
     }
 
 
@@ -46,8 +47,9 @@ console.log("diaAtual:", diaAtual);
                 {tarefa.hora}
                 </span>
             </div>
-            <div value={tarefa.id} onClick={handleClickMenuTarefa} className={styles.acaoTarefa}>
+            <div value={tarefa.id} onClick={() => handleClickMenuTarefa(tarefa.id)} className={styles.acaoTarefa}>
                 :
+                {tarefa.menuAberto && <MenuTarefa toggleMenuTarefa={toggleMenuTarefa}/>}
             </div>
             </div>
   ))}

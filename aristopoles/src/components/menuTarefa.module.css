@@ -1,6 +1,7 @@
 .menuTarefa {
-    width: 90%;
-    height: 100px;
+    position: absolute;
+    top: 0;
+    right: -200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,7 +12,7 @@
 }
 
 .menuTarefaItem {
-    width: 80%;
+    width: 150px;
     height: 50px;
     padding: 10px;
     background-color: #2600ff;
