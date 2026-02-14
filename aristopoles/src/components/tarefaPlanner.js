@@ -2,12 +2,12 @@ import styles from './tarefaPlanner.module.css'
 import MenuTarefa from './menuTarefa';
 
 
-function TarefaPlanner({ modoPlanner, tarefas, descricaoTarefa, horaTarefa, setDescricaoTarefa, setHoraTarefa, diaAtual, toggleMenuTarefa }) {
+function TarefaPlanner({ modoPlanner, tarefas, descricaoTarefa, horaTarefa, setDescricaoTarefa, setHoraTarefa, diaAtual, toggleConcluida, toggleMenuTarefa }) {
 
     console.log("PROPS COMPLETAS:", arguments[0]);
 
-console.log("tarefas:", tarefas);
-console.log("diaAtual:", diaAtual);
+    console.log("tarefas:", tarefas);
+    console.log("diaAtual:", diaAtual);
 
     const tarefasDoDia = tarefas.filter(tarefa => {
     const d1 = new Date(tarefa.dia);
@@ -19,6 +19,10 @@ console.log("diaAtual:", diaAtual);
         d1.getDate() === d2.getDate()
     );
     });
+
+    const tarefasOrdenadas = [...tarefasDoDia].sort(
+    (a, b) => a.concluida - b.concluida
+  );
 
 
     function handleClickMenuTarefa(idTarefa) {
@@ -34,15 +38,21 @@ console.log("diaAtual:", diaAtual);
 
         
 
-          {tarefasDoDia.map((tarefa) => (
+          {tarefasOrdenadas.map((tarefa) => (
             <div key={tarefa.id} className={styles["planner-dia-tarefas"]}>
             <div className={styles.checkTarefa}>
-                <input type="checkbox" />
+                <input type="checkbox"
+                checked={tarefa.concluida}
+                onChange={() => toggleConcluida(tarefa.id)} 
+                />
+                
             </div>
+
             <div className={styles.conteudoTarefa}>
-                <span className={styles.tituloTarefa}>
+            <span className={`${styles.tituloTarefa} ${tarefa.concluida && styles.concluida}`}>
                 {tarefa.descricao}
-                </span>
+            </span>
+
                 <span className={styles.horaTarefa}>
                 {tarefa.hora}
                 </span>
