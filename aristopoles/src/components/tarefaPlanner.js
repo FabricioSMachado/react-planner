@@ -2,7 +2,7 @@ import styles from './tarefaPlanner.module.css'
 import MenuTarefa from './menuTarefa';
 
 
-function TarefaPlanner({ modoPlanner, tarefas, descricaoTarefa, horaTarefa, setDescricaoTarefa, setHoraTarefa, diaAtual, toggleConcluida, toggleMenuTarefa }) {
+function TarefaPlanner({ modoPlanner, tarefas, descricaoTarefa, horaTarefa, setDescricaoTarefa, setHoraTarefa, diaAtual, toggleConcluida, toggleMenuTarefa, ExcluirTarefa, EditarTarefa }) {
 
     console.log("PROPS COMPLETAS:", arguments[0]);
 
@@ -59,7 +59,7 @@ function TarefaPlanner({ modoPlanner, tarefas, descricaoTarefa, horaTarefa, setD
             </div>
             <div value={tarefa.id} onClick={() => handleClickMenuTarefa(tarefa.id)} className={styles.acaoTarefa}>
                 :
-                {tarefa.menuAberto && <MenuTarefa toggleMenuTarefa={toggleMenuTarefa}/>}
+                {tarefa.menuAberto && <MenuTarefa toggleMenuTarefa={toggleMenuTarefa} idTarefa={tarefa.id} ExcluirTarefa={ExcluirTarefa} EditarTarefa={EditarTarefa} />}
             </div>
             </div>
   ))}

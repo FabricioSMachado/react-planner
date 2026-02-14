@@ -16,6 +16,10 @@ function App() {
 
   const [tarefas, setTarefas] = useState([]);
 
+  const [idTarefaEditar, setIdTarefaEditar] = useState(null);
+
+
+
   function salvarTarefa() {
 
     if (!descricaoTarefa.trim() && !horaTarefa.trim()) {
@@ -33,6 +37,14 @@ function App() {
       return;
     }
 
+    if (idTarefaEditar !== null) {
+      setTarefas(prevTarefas =>
+        prevTarefas.map(tarefa =>
+          tarefa.id === idTarefaEditar ? { ...tarefa, descricao: descricaoTarefa, hora: horaTarefa } : tarefa ));
+          setIdTarefaEditar(null);
+    }
+
+    else {
     const novaTarefa = {
       id: Date.now(),
       dia: diaAtual,
@@ -44,15 +56,21 @@ function App() {
 
     setTarefas(prevTarefas => [...prevTarefas, novaTarefa]);
 
+  
+
     console.log("Tarefas atuais:", tarefas);
     console.log("Nova lista:", [...tarefas, novaTarefa]);
     console.log("Tarefa salva:", novaTarefa);
+
+  }
 
     setDescricaoTarefa("");
     setHoraTarefa("");
 
     alternaModoPlanner();
+    toggleMenuTarefa(null);
   }
+
 
   function toggleConcluida(id) {
   setTarefas(tarefas.map(tarefa => {
@@ -95,7 +113,24 @@ function App() {
       }))
     );
   }
+
+
+  function ExcluirTarefa(idTarefa) {
+    if (window.confirm("Tem certeza que deseja excluir esta tarefa?")) {
+      setTarefas(prevTarefas => prevTarefas.filter(tarefa => tarefa.id !== idTarefa));
+    }
+  }
     
+
+  function EditarTarefa(idTarefa) {
+    const tarefaParaEditar = tarefas.find(tarefa => tarefa.id === idTarefa);
+
+    setIdTarefaEditar(idTarefa);
+    setDescricaoTarefa(tarefaParaEditar.descricao);
+    setHoraTarefa(tarefaParaEditar.hora);
+    setModoPlanner(1);
+  }
+
 
 
     return (
@@ -103,8 +138,8 @@ function App() {
           <Navegacao direction="left" event={atualizaDiaAtual} />
         <div className="planner-dia">     
             <DataPlanner diaAtual={diaAtual}/>
-            <TarefaPlanner modoPlanner={modoPlanner} descricaoTarefa={descricaoTarefa} horaTarefa={horaTarefa} setDescricaoTarefa={setDescricaoTarefa} setHoraTarefa={setHoraTarefa} diaAtual={diaAtual} tarefas={tarefas} toggleConcluida={toggleConcluida} toggleMenuTarefa={toggleMenuTarefa} />
-            <BotaoPlanner modoPlanner={modoPlanner} eventModoPlanner={alternaModoPlanner} eventSalvarTarefa={salvarTarefa}   />
+            <TarefaPlanner modoPlanner={modoPlanner} descricaoTarefa={descricaoTarefa} horaTarefa={horaTarefa} setDescricaoTarefa={setDescricaoTarefa} setHoraTarefa={setHoraTarefa} diaAtual={diaAtual} tarefas={tarefas} toggleConcluida={toggleConcluida} toggleMenuTarefa={toggleMenuTarefa} ExcluirTarefa={ExcluirTarefa} EditarTarefa={EditarTarefa} />
+            <BotaoPlanner modoPlanner={modoPlanner} eventModoPlanner={alternaModoPlanner} eventSalvarTarefa={salvarTarefa} />
         </div>
         <Navegacao direction="right" event={atualizaDiaAtual} />
     </main>
